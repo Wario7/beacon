@@ -8,7 +8,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class BeaconActivity extends FragmentActivity {
+public class BeaconActivity extends FragmentActivity
+        implements HeadlinesFragment.OnHeadlineSelectedListener {
 
     public void onArticleSelected(int position) {
         // The user selected the headline of an article from the HeadlinesFragment
@@ -80,6 +81,7 @@ public class BeaconActivity extends FragmentActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        Log.d("onCreateOptionsMenu()", "onCreateOptionsMenu() called");
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_beacon, menu);
         return true;
@@ -87,6 +89,8 @@ public class BeaconActivity extends FragmentActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d("onOptionsItemSelected()", "onOptionsItemSelected() called");
+
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
@@ -99,4 +103,6 @@ public class BeaconActivity extends FragmentActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
+
