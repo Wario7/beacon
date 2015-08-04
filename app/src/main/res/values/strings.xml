@@ -2,5 +2,6 @@
     <string name="app_name">Beacon</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="headline_fragment">HeadlineFragment</string>
     <string name="action_settings">Settings</string>
 </resources>
