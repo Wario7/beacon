@@ -114,5 +114,27 @@ public class ContactsFragment extends Fragment implements
                 0);
         // Sets the adapter for the ListView
         mContactsList.setAdapter(mCursorAdapter);
+
+        // Initializes the loader
+        getLoaderManager().initLoader(0, null, this);
+    }
+
+    @Override
+    public void onItemClick(
+            AdapterView<?> parent, View item, int position, long rowID) {
+        // Get the Cursor
+        Cursor cursor = parent.getAdapter().getCursor();
+        // Move to the selected contact
+        cursor.moveToPosition(position);
+        // Get the _ID value
+        mContactId = getLong(CONTACT_ID_INDEX);
+        // Get the selected LOOKUP KEY
+        mContactKey = getString(CONTACT_KEY_INDEX);
+        // Create the contact's content Uri
+        mContactUri = ContactsContract.Contacts.getLookupUri(mContactId, mContactKey);
+        /*
+         * You can use mContactUri as the content URI for retrieving
+         * the details for a contact.
+         */
     }
 }
